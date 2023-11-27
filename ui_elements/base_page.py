@@ -19,11 +19,14 @@ class BasePage:
         )
         return element
 
-    def click_element(self, locator, wait_time=20):
+    def find_element(self, locator):
+        return self.app.driver.find_element_by_xpath(locator)
+
+    def click_element(self, locator):
         """
         Click element.
         """
-        element = self._find_element(locator, wait_time)
+        element = self._find_element(locator)
         element.click()
 
     def fill(self, locator, value: str, wait_time=20):

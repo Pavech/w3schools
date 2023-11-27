@@ -5,10 +5,11 @@ from ui_elements.base_page import BasePage
 
 class TrySQLPage(BasePage):
     COMMAND_SQL_CUSTOMERS = (By.XPATH, "//*[contains(text(),'SELECT * FROM Customers;')]")
-    TABLE_CUSTOMERS = (By.XPATH, "//td[@onclick='w3schoolsNoWebSQLSelectStar('Customers')']")
+    TABLE_CUSTOMERS = (By.XPATH, "//td[@onclick=\"w3schoolsNoWebSQLSelectStar('Customers')\"]")
     CODE_SQL = (By.ID, "textareaCodeSQL")
     CONTACT_NAME = (By.XPATH, "//*[contains(text(),'{name}')]")
     ADDRESS = (By.XPATH, "//*[contains(text(),'{address}')]")
+    BTN_RUN_SQL = (By.XPATH, "//*[contains(text(),'Run SQL »')]")
     NUM_RECORD = (By.XPATH, "//*[contains(text(),'Number of Records: {number}')]")
 
     """
@@ -19,5 +20,4 @@ class TrySQLPage(BasePage):
     """
 
     def choice_table_customers(self):
-        self.click_element(locator=self.TABLE_CUSTOMERS)
-        return self
+        self.click_element(locator=self.BTN_RUN_SQL)

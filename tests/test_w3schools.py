@@ -4,7 +4,6 @@ def test_check_user(app):
     """
 
     app.training_sql.choice_table_customers()
-    a=1
     # app.login_page.open_login_page()
     # username = "Aleppo"
     # password = None

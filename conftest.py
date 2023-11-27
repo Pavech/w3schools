@@ -18,7 +18,13 @@ def pytest_addoption(parser):
 
 
 @pytest.fixture
-def app(request):
+def app(web_start_page):
+    app = Application(driver=web_start_page)
+    yield app
+
+
+@pytest.fixture
+def driver(request):
     url = request.config.getoption("--url")
     logger.info(f"Start app on {url}")
     headless = request.config.getoption("--headless")
@@ -29,6 +35,12 @@ def app(request):
     else:
         chrome_options.headless = False
     driver = webdriver.Chrome("C:/chromedriver/chromedriver.exe", options=chrome_options)
-    app = Application(driver, url)
-    yield app
-    app.quit()
+    driver.maximize_window()
+    yield driver
+    driver.quit()
+
+
+@pytest.fixture
+def web_start_page(driver):
+    driver.get("https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_all")
+    return driver
