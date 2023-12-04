@@ -1,11 +1,7 @@
-from ui_elements.trysql_page import TrySQLPage
+from ui_elements import trysql_page
 
 
 class Application:
 
-    def __init__(self, driver):
-        self.driver = driver
-        self.training_sql = TrySQLPage(self)
-
-    def quit(self):
-        self.driver.quit()
+    def __init__(self, webdriver):
+        self.training_sql = trysql_page.TrySQLPage(webdriver)

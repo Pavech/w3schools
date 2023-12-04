@@ -1,11 +1,17 @@
 def test_check_user(app):
     """
-    Empty password.
+    Проверка полей ContactName и Address
     """
+    (app.
+     training_sql.
+     click_run_sql().
+     check_name_and_address())
 
-    app.training_sql.choice_table_customers()
-    # app.login_page.open_login_page()
-    # username = "Aleppo"
-    # password = None
-    # app.login_page.entry_data(username=username, password=password)
-    # assert app.login_page.log_in() == LoginMessages.LOG_IN
+
+def test_city(app):
+    """
+    Проверка записей в таблице
+    """
+    (app.
+     training_sql.
+     click_wr_code())
